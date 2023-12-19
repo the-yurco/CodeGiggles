@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from django.contrib import admin
+from django.urls import path, include
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,6 +28,10 @@ SECRET_KEY = 'django-insecure-2a*smu=q8+kc3*lv+1o(k-6*3b#3-u&@80g-$bjybqx4s=ocor
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+# codegiggles/settings.py
+
+# Add this line to serve static files during development
 
 
 # Application definition
@@ -116,7 +122,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+# codegiggles/settings.py
+
+STATIC_URL = '/static/'
+
+# codegiggles/settings.py
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'codegiggles_app/static',
+]
+
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

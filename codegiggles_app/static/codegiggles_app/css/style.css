@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Silkscreen:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Share Tech Mono";
+}
+
+body #home_navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem 0;
+}
+body #home_navbar #logo {
+  font-family: "Silkscreen";
+  font-size: 3rem;
+  color: #3f3f3f;
+}
+body #home_navbar #links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+body #home_navbar #links .navbar_link button {
+  padding: 0.2rem 2rem;
+  font-size: 1rem;
+  background-color: transparent;
+  border: 1px solid #3f3f3f;
+  border-radius: 0.15rem;
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
+body #home_navbar #links .navbar_link button:hover {
+  background-color: #3f3f3f;
+  color: #dddddd;
+  cursor: pointer;
+}
+body #home_navbar #add_snippet_btn button {
+  padding: 0.2rem 2rem;
+  font-size: 1.2rem;
+  background-color: #3f3f3f;
+  color: #dddddd;
+  border: none;
+  border-radius: 0.15rem;
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
+body #home_navbar #add_snippet_btn button:hover {
+  background-color: #2e2e2e;
+  cursor: pointer;
+}
+body #home_hero_section {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10rem 5rem;
+}
+body #home_hero_section #text {
+  width: 28rem;
+  font-size: 1.8rem;
+  color: #3f3f3f;
+}
+body #home_hero_section #link a button {
+  padding: 0.3rem 2.2rem;
+  font-size: 1.5rem;
+  background-color: #3f3f3f;
+  color: #dddddd;
+  border: none;
+  border-radius: 0.15rem;
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
+body #home_hero_section #link a button:hover {
+  background-color: #2e2e2e;
+  cursor: pointer;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Silkscreen:wght@400;700&display=swap');
+@import './variables';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Share Tech Mono';
+}
+
+body {
+	#home_navbar {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		padding: 2rem 0;
+		#logo {
+			font-family: 'Silkscreen';
+			font-size: 3rem;
+			color: $grey;
+		}
+		#links {
+			display: flex;
+			align-items: center;
+			gap: 2rem;
+			.navbar_link {
+				button {
+					padding: 0.2rem 2rem;
+					font-size: 1rem;
+					background-color: transparent;
+					border: 1px solid $grey;
+					border-radius: 0.15rem;
+					transition: all 0.3s;
+					text-transform: uppercase;
+					&:hover {
+						background-color: $grey;
+						color: $white;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+		#add_snippet_btn {
+			button {
+				padding: 0.2rem 2rem;
+				font-size: 1.2rem;
+				background-color: $grey;
+				color: $white;
+				border: none;
+				border-radius: 0.15rem;
+				transition: all 0.3s;
+				text-transform: uppercase;
+				&:hover {
+					background-color: $hoverGrey;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+
+	#home_hero_section {
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		padding: 10rem 5rem;
+
+		#text {
+			width: 28rem;
+			font-size: 1.8rem;
+			color: $grey;
+		}
+
+		#link {
+			a {
+				button {
+					padding: 0.3rem 2.2rem;
+					font-size: 1.5rem;
+					background-color: $grey;
+					color: $white;
+					border: none;
+					border-radius: 0.15rem;
+					transition: all 0.3s;
+					text-transform: uppercase;
+					&:hover {
+						background-color: $hoverGrey;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+	}
+}

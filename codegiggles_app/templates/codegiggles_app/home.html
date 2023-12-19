@@ -1,15 +1,49 @@
-<!-- codegiggles_app/templates/codegiggles_app/home.html -->
+{% load static %}
 
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="{% static 'codegiggles_app/css/style.css' %}"
+		/>
+		<title>Welcome to Code Giggles!</title>
+	</head>
+	<body>
+		<section id="home_navbar">
+			<h1 id="logo">CodeGiggles</h1>
+			<div id="links">
+				<a href="{% url 'home' %}" class="navbar_link"><button>Home</button></a>
+				<a href="{% url 'snippets' %}" class="navbar_link"
+					><button>Snippets</button></a
+				>
+			</div>
+			<div>
+				<a href="{% url 'home' %}" id="add_snippet_btn"
+					><button>Add Snippet</button></a
+				>
+			</div>
+		</section>
 
-{% block content %}
-  <h1>Welcome to Code Giggles!</h1>
-  <a href="{% url 'snippets' %}"><button>Add Snippet</button></a>
+		<section id="home_hero_section">
+			<div id="text">
+				<p>
+					ELEVATE THE JOY IN YOUR CODE: WHERE DEDICATED DEVELOPMENT MEETS
+					CODEGIGGLES, YOUR BLISSFUL OASIS FOR SNIPPETS
+				</p>
+			</div>
+			<div id="link">
+				<a href="{% url 'home' %}"><button>Plant Your Code Seed</button></a>
+			</div>
+		</section>
 
-  <!-- Display latest snippets -->
-  {% for snippet in snippets %}
-    <div>
-      <h2>{{ snippet.title }}</h2>
-      <pre>{{ snippet.code }}</pre>
-    </div>
-  {% endfor %}
-{% endblock %}
+		{% for snippet in snippets %}
+		<div>
+			<h2>{{ snippet.title }}</h2>
+			<pre>{{ snippet.code }}</pre>
+		</div>
+		{% endfor %}
+	</body>
+</html>

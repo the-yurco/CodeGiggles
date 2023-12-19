@@ -1,0 +1,16 @@
+<!-- codegiggles_app/templates/codegiggles_app/snippets.html -->
+
+
+{% block content %}
+  <h1>Code Snippets</h1>
+  <a href="{% url 'home' %}"><button>Home</button></a>
+  <a href="{% url 'add_snippet' %}"><button>Add Snippet</button></a>
+
+  <!-- Display all snippets -->
+  {% for snippet in snippets %}
+    <div>
+      <h2>{{ snippet.title }}</h2>
+      <pre>{{ snippet.code }}</pre>
+    </div>
+  {% endfor %}
+{% endblock %}

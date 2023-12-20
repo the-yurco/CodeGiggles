@@ -20,9 +20,11 @@
 		<section id="form">
 			<form method="post">
 				{% csrf_token %} {{ form.as_p }}
-				<button type="submit">Add Snippet</button>
+				<div class="form_btns">
+					<button type="submit">Add Snippet</button>
+					<a href="{% url 'snippets' %}">Cancel</a>
+				</div>
 			</form>
-			<a href="{% url 'snippets' %}"><button>Cancel</button></a>
 		</section>
 
 		<section id="footer">

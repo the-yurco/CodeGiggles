@@ -22,22 +22,19 @@
 		</section>
 
 		<section id="snippets_snippets">
-				{% for snippet in snippets %}
-					<div id="snippet">
-						<div>
-							<div>
-								<h2>{{ snippet.title }}</h2>
-								<p class="tag">{{ snippet.language }}</p>
-								<pre>
-									
-								</pre>
-							</div>
-							<p class="created">
-								<span class="text"> Created: </span>
-								<span>{{ snippet.created_at }}</span>
-							</p>
-						</div>
+			{% for snippet in snippets %}
+			<div id="snippet">
+				<div>
+					<div>
+						<h2>{{ snippet.title }}</h2>
+						<p class="tag">{{ snippet.language }}</p>
 					</div>
+					<p class="created">
+						<span class="text"> Created: </span>
+						<span>{{ snippet.created_at }}</span>
+					</p>
+				</div>
+			</div>
 			{% endfor %}
 		</section>
 

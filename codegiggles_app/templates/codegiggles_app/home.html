@@ -9,7 +9,8 @@
 			rel="stylesheet"
 			href="{% static 'codegiggles_app/css/style.css' %}"
 		/>
-		<title>Welcome to Code Giggles!</title>
+
+		<title>CodeGiggles | Home</title>
 	</head>
 	<body>
 		<section id="home_navbar">
@@ -21,7 +22,7 @@
 				>
 			</div>
 			<div>
-				<a href="{% url 'home' %}" id="add_snippet_btn"
+				<a href="{% url 'add_snippet' %}" id="add_snippet_btn"
 					><button>Add Snippet</button></a
 				>
 			</div>
@@ -35,15 +36,35 @@
 				</p>
 			</div>
 			<div id="link">
-				<a href="{% url 'home' %}"><button>Plant Your Code Seed</button></a>
+				<a href="{% url 'snippets' %}"><button>Plant Your Code Seed</button></a>
 			</div>
 		</section>
 
-		{% for snippet in snippets %}
-		<div>
-			<h2>{{ snippet.title }}</h2>
-			<pre>{{ snippet.code }}</pre>
-		</div>
-		{% endfor %}
+		<section id="home_snippets">
+			{% for snippet in snippets %}
+			<div id="snippet">
+				<div>
+					<h2>{{ snippet.title }}</h2>
+					<pre>{{ snippet.code }}</pre>
+					<div class="pecka">
+						<p class="tag">{{ snippet.language }}</p>
+						<p class="created">
+							<span class="text"> Created: </span>
+							<span>{{ snippet.created_at }}</span>
+						</p>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</section>
+
+		<section id="footer">
+			<div>
+				<h3 id="logo">CodeGiggles</h3>
+			</div>
+			<div id="copyright">
+				<p>Copyright © 2024 made by Yurco. All rights reserved</p>
+			</div>
+		</section>
 	</body>
 </html>

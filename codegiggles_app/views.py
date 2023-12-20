@@ -9,3 +9,7 @@ def home(request):
 def snippets(request):
   snippets = Snippet.objects.all()
   return render(request, 'codegiggles_app/snippets.html', {'snippets': snippets})
+
+def add_snippet(request):
+  snippets = Snippet.objects.all()
+  return render(request, 'codegiggles_app/add_snippet.html', {'snippets': snippets})

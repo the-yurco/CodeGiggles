@@ -74,4 +74,113 @@ body #home_hero_section #link a button {
 body #home_hero_section #link a button:hover {
   background-color: #2e2e2e;
   cursor: pointer;
+}
+body #home_snippets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0 5rem;
+  margin: 5rem 0 0 0;
+}
+body #home_snippets #snippet {
+  max-width: 25rem;
+  background-color: transparent;
+  padding: 0.3rem;
+  box-shadow: 5px 5px #3f3f3f;
+  border-radius: 0.3rem;
+  border: 1px solid #3f3f3f;
+  width: max-content;
+}
+body #home_snippets #snippet div {
+  background-color: #3f3f3f;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  height: 100% !important;
+  justify-content: space-between;
+}
+body #home_snippets #snippet div h2 {
+  color: #dddddd;
+  text-transform: uppercase;
+}
+body #home_snippets #snippet div pre {
+  background-color: #f4f4f4;
+  padding: 10px;
+  border: 1px solid #ccc;
+  overflow: auto;
+  height: 100%;
+}
+body #home_snippets #snippet div .tag {
+  padding: 0.2rem 2rem;
+  font-size: 1rem;
+  background-color: transparent;
+  border: 1px solid #dddddd;
+  border-radius: 0.15rem;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  width: max-content;
+  color: #dddddd;
+}
+body #home_snippets #snippet div .created {
+  color: #dddddd;
+}
+body #home_snippets #snippet div .created .text {
+  text-decoration: underline;
+  width: max-content;
+}
+body #home_snippets #snippet div .created span {
+  color: #dddddd;
+}
+body #footer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10rem 5rem 0;
+}
+body #footer #logo {
+  font-family: "Silkscreen";
+  font-size: 3rem;
+  color: #3f3f3f;
+}
+body #footer #copyright {
+  color: #3f3f3f;
+  font-size: 1.2rem;
+}
+body #snippets_header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 0;
+}
+body #snippets_header #logo {
+  font-family: "Silkscreen";
+  font-size: 3rem;
+  color: #3f3f3f;
+}
+body #snippets_header input {
+  padding: 0.3rem 1rem;
+  font-size: 1.3rem;
+  border-radius: 0.3rem;
+  border: 1px solid #3f3f3f;
+}
+body #snippets_header a {
+  width: 17.3rem;
+}
+body #snippets_header a button {
+  padding: 0.3rem 1rem;
+  width: 100%;
+  border-radius: 0.3rem;
+  border: 1px solid #3f3f3f;
+  background-color: #3f3f3f;
+  color: #dddddd;
+  font-size: 1.3rem;
+  transition: all 0.3s;
+}
+body #snippets_header a button:hover {
+  cursor: pointer;
+  background-color: #2e2e2e;
 }/*# sourceMappingURL=style.css.map */

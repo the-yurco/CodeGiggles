@@ -1,50 +1,45 @@
+<!-- codegiggles_app/templates/codegiggles_app/snippets.html -->
 {% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			rel="stylesheet"
-			href="{% static 'codegiggles_app/css/style.css' %}"
-		/>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'codegiggles_app/css/style.css' %}" />
+    <title>Code Snippets | Snippets</title>
+</head>
+<body>
+    <section id="snippets_header">
+        <a href="{% url 'home' %}" id="logobtn"><h1 id="logo">Code Snippets</h1></a>
+        <input placeholder="Search for snippet"></input>
+        <a href="{% url 'add_snippet' %}" id="add_snippet_btn"><button>+</button></a>
+    </section>
 
-		<title>Code Snippets</title>
-	</head>
-	<body>
-		<section id="snippets_header">
-			<h1 id="logo">Code Snippets</h1>
-			<input placeholder="Search for snippet"></input>
-			<a href="{% url 'add_snippet' %}" id="add_snippet_btn"
-				><button>+</button></a
-			>
-		</section>
+    <section id="snippets_snippets">
+        {% for snippet in snippets %}
+        <div id="snippet">
+            <div>
+                <div>
+                    <h2><a href="{% url 'snippet_detail' snippet_id=snippet.id %}" id="linkales">{{ snippet.title }}</a></h2>
+                    <p class="tag">{{ snippet.language }}</p>
+                </div>
+                <p class="created">
+                    <span class="text"> Created: </span>
+                    <span>{{ snippet.created_at }}</span>
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
 
-		<section id="snippets_snippets">
-			{% for snippet in snippets %}
-			<div id="snippet">
-				<div>
-					<div>
-						<h2>{{ snippet.title }}</h2>
-						<p class="tag">{{ snippet.language }}</p>
-					</div>
-					<p class="created">
-						<span class="text"> Created: </span>
-						<span>{{ snippet.created_at }}</span>
-					</p>
-				</div>
-			</div>
-			{% endfor %}
-		</section>
-
-		<section id="footer">
-			<div>
-				<h3 id="logo">CodeGiggles</h3>
-			</div>
-			<div id="copyright">
-				<p>Copyright © 2024 made by Yurco. All rights reserved</p>
-			</div>
-		</section>
-	</body>
+    <section id="footer">
+        <div>
+            <h3 id="logo">CodeGiggles</h3>
+        </div>
+        <div id="copyright">
+            <p>Copyright © 2024 made by Yurco. All rights reserved</p>
+        </div>
+    </section>
+</body>
 </html>

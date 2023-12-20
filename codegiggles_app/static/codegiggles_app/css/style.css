@@ -6,6 +6,9 @@
   font-family: "Share Tech Mono";
 }
 
+body {
+  background-color: #dddddd !important;
+}
 body #home_navbar {
   display: flex;
   justify-content: space-around;
@@ -75,6 +78,10 @@ body #home_hero_section #link a button:hover {
   background-color: #2e2e2e;
   cursor: pointer;
 }
+body #linkales {
+  text-decoration: none !important;
+  color: #dddddd !important;
+}
 body #home_snippets {
   display: flex;
   flex-direction: column;
@@ -102,6 +109,10 @@ body #home_snippets #snippet div {
 body #home_snippets #snippet div h2 {
   color: #dddddd;
   text-transform: uppercase;
+}
+body #home_snippets #snippet div h2 a {
+  text-decoration: none !important;
+  color: #dddddd !important;
 }
 body #home_snippets #snippet div pre {
   background-color: #f4f4f4;
@@ -242,45 +253,60 @@ body #snippets_snippets #snippet div .created .text {
 body #snippets_snippets #snippet div .created span {
   color: #dddddd;
 }
+body #snippets_header #logobtn {
+  width: max-content;
+  text-align: center;
+  text-decoration: none;
+}
+body #snippets_header #logobtn h1 {
+  width: max-content;
+}
 body #form {
   display: grid;
   place-items: center;
 }
 body #form form {
-  background-color: #3f3f3f;
-  padding: 0.8rem;
+  background-color: #dddddd;
+  padding: 0.3rem;
   border-radius: 0.3rem;
   border: 1px solid #dddddd;
   box-shadow: 5px 5px #3f3f3f;
-  display: flex;
-  flex-direction: column;
+  border: 1px solid #3f3f3f;
   gap: 1rem;
 }
-body #form form p {
+body #form form div {
+  display: flex;
+  flex-direction: column;
+  background-color: #3f3f3f;
+  padding: 0.8rem;
+  border-radius: 0.3rem;
+  gap: 1rem;
+}
+body #form form div p {
   display: flex;
   flex-direction: column;
 }
-body #form form p label {
+body #form form div p label {
   color: #dddddd;
   text-transform: uppercase;
   font-size: 1.4rem;
 }
-body #form form p input,
-body #form form p textarea {
+body #form form div p input,
+body #form form div p textarea {
   padding: 0.3rem 1rem;
   font-size: 1.3rem;
   border-radius: 0.3rem;
   border: 1px solid #3f3f3f;
 }
-body #form form .form_btns {
-  margin: 2rem 0;
+body #form form div .form_btns {
+  margin: 1rem 0;
   display: flex;
   justify-content: center;
   gap: 1rem;
 }
-body #form form .form_btns button,
-body #form form .form_btns a {
-  padding: 0.2rem 2rem;
+body #form form div .form_btns button,
+body #form form div .form_btns a {
+  padding: 0.4rem 2rem;
   font-size: 1.2rem;
   background-color: transparent;
   border: 1px solid #dddddd;
@@ -289,15 +315,16 @@ body #form form .form_btns a {
   text-transform: uppercase;
   text-decoration: none;
   transition: all 0.3s;
+  text-align: center;
 }
-body #form form .form_btns button:hover,
-body #form form .form_btns a:hover {
+body #form form div .form_btns button:hover,
+body #form form div .form_btns a:hover {
   cursor: pointer;
 }
-body #form form .form_btns button {
+body #form form div .form_btns button {
   color: #dddddd;
 }
-body #form form .form_btns a {
+body #form form div .form_btns a {
   color: #3f3f3f;
   background-color: #dddddd;
 }/*# sourceMappingURL=style.css.map */

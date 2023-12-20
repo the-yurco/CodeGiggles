@@ -9,6 +9,7 @@
 }
 
 body {
+	background-color: $white !important;
 	#home_navbar {
 		display: flex;
 		justify-content: space-around;
@@ -90,6 +91,11 @@ body {
 		}
 	}
 
+	#linkales {
+		text-decoration: none !important;
+		color: $white !important;
+	}
+
 	#home_snippets {
 		display: flex;
 		flex-direction: column;
@@ -114,6 +120,10 @@ body {
 				h2 {
 					color: $white;
 					text-transform: uppercase;
+					a {
+						text-decoration: none !important;
+						color: $white !important;
+					}
 				}
 				pre {
 					background-color: #f4f4f4;
@@ -260,60 +270,79 @@ body {
 		}
 	}
 
+	#snippets_header {
+		#logobtn {
+			width: max-content;
+			text-align: center;
+			text-decoration: none;
+			h1 {
+				width: max-content;
+			}
+		}
+	}
+
 	#form {
 		display: grid;
 		place-items: center;
 		form {
-			background-color: $grey;
-			padding: 0.8rem;
+			background-color: $white;
+			padding: 0.3rem;
 			border-radius: 0.3rem;
 			border: 1px solid $white;
 			box-shadow: 5px 5px $grey;
-			display: flex;
-			flex-direction: column;
+			border: 1px solid $grey;
 			gap: 1rem;
-			p {
+			div {
 				display: flex;
 				flex-direction: column;
-				label {
-					color: $white;
-					text-transform: uppercase;
-					font-size: 1.4rem;
-				}
-				input,
-				textarea {
-					padding: 0.3rem 1rem;
-					font-size: 1.3rem;
-					border-radius: 0.3rem;
-					border: 1px solid #3f3f3f;
-				}
-			}
-			.form_btns {
-				margin: 2rem 0;
-				display: flex;
-				justify-content: center;
+				background-color: $grey;
+				padding: 0.8rem;
+				border-radius: 0.3rem;
 				gap: 1rem;
-				button,
-				a {
-					padding: 0.2rem 2rem;
-					font-size: 1.2rem;
-					background-color: transparent;
-					border: 1px solid $white;
-					border-radius: 0.15rem;
-					transition: all 0.3s;
-					text-transform: uppercase;
-					text-decoration: none;
-					transition: all 0.3s;
-					&:hover {
-						cursor: pointer;
+				p {
+					display: flex;
+					flex-direction: column;
+					label {
+						color: $white;
+						text-transform: uppercase;
+						font-size: 1.4rem;
+					}
+					input,
+					textarea {
+						padding: 0.3rem 1rem;
+						font-size: 1.3rem;
+						border-radius: 0.3rem;
+						border: 1px solid #3f3f3f;
 					}
 				}
-				button {
-					color: $white;
-				}
-				a {
-					color: $grey;
-					background-color: $white;
+				.form_btns {
+					margin: 1rem 0;
+					display: flex;
+					justify-content: center;
+					gap: 1rem;
+					button,
+					a {
+						padding: 0.4rem 2rem;
+						font-size: 1.2rem;
+						background-color: transparent;
+						border: 1px solid $white;
+						border-radius: 0.15rem;
+						transition: all 0.3s;
+						text-transform: uppercase;
+						text-decoration: none;
+						transition: all 0.3s;
+						text-align: center;
+						&:hover {
+							cursor: pointer;
+						}
+					}
+					button {
+						color: $white;
+					}
+					a {
+						color: $grey;
+						background-color: $white;
+					}
 				}
 			}
 		}

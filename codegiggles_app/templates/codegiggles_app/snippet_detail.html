@@ -1,3 +1,4 @@
+<!-- codegiggles_app/templates/codegiggles_app/snippet_detail.html -->
 {% load static %}
 
 <!DOCTYPE html>
@@ -9,26 +10,19 @@
 			rel="stylesheet"
 			href="{% static 'codegiggles_app/css/style.css' %}"
 		/>
-
-		<title>Code Snippets | Add Snippet</title>
+		<title>{{ snippet.title }}</title>
 	</head>
 	<body>
-		<section id="snippets_header">
-			<a href="{% url 'home' %}" id="logobtn"
-				><h1 id="logo">Code Snippets</h1></a
-			>
-		</section>
-
-		<section id="form">
-			<form method="post">
-				<div>
-					{% csrf_token %} {{ form.as_p }}
-					<div class="form_btns">
-						<button type="submit">Add Snippet</button>
-						<a href="{% url 'snippets' %}">Cancel</a>
-					</div>
-				</div>
-			</form>
+		<section id="snippet_detail">
+			<div>
+				<h2>{{ snippet.title }}</h2>
+				<p class="tag">{{ snippet.language }}</p>
+				<p class="created">
+					<span class="text"> Created: </span>
+					<span>{{ snippet.created_at }}</span>
+				</p>
+				<pre>{{ snippet.code }}</pre>
+			</div>
 		</section>
 
 		<section id="footer">

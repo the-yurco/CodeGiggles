@@ -46,7 +46,13 @@
 			<div id="snippet">
 				<div>
 					<div>
-						<h2>{{ snippet.title }}</h2>
+						<h2>
+							<a
+								href="{% url 'snippet_detail' snippet_id=snippet.id %}"
+								id="linkales"
+								>{{ snippet.title }}</a
+							>
+						</h2>
 						<p class="tag">{{ snippet.language }}</p>
 					</div>
 					<p class="created">

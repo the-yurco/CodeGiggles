@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="{% static 'codegiggles_app/css/style.css' %}"
+		/>
+
+		<title>Code Snippets</title>
+	</head>
+	<body>
+		<section id="snippets_header">
+			<h1 id="logo">Code Snippets</h1>
+		</section>
+
+		<section id="form">
+			<form method="post">
+				{% csrf_token %} {{ form.as_p }}
+				<button type="submit">Add Snippet</button>
+			</form>
+			<a href="{% url 'snippets' %}"><button>Cancel</button></a>
+		</section>
+
+		<section id="footer">
+			<div>
+				<h3 id="logo">CodeGiggles</h3>
+			</div>
+			<div id="copyright">
+				<p>Copyright © 2024 made by Yurco. All rights reserved</p>
+			</div>
+		</section>
+	</body>
+</html>

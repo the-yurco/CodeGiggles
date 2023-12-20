@@ -21,21 +21,23 @@
 			>
 		</section>
 
-		<section id="home_snippets">
-			{% for snippet in snippets %}
-			<div id="snippet">
-				<div>
-					<h2>{{ snippet.title }}</h2>
-					<pre>{{ snippet.code }}</pre>
-					<div class="pecka">
-						<p class="tag">{{ snippet.language }}</p>
-						<p class="created">
-							<span class="text"> Created: </span>
-							<span>{{ snippet.created_at }}</span>
-						</p>
+		<section id="snippets_snippets">
+				{% for snippet in snippets %}
+					<div id="snippet">
+						<div>
+							<div>
+								<h2>{{ snippet.title }}</h2>
+								<p class="tag">{{ snippet.language }}</p>
+								<pre>
+									
+								</pre>
+							</div>
+							<p class="created">
+								<span class="text"> Created: </span>
+								<span>{{ snippet.created_at }}</span>
+							</p>
+						</div>
 					</div>
-				</div>
-			</div>
 			{% endfor %}
 		</section>
 

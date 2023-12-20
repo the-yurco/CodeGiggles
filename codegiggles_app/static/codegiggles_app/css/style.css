@@ -77,19 +77,17 @@ body #home_hero_section #link a button:hover {
 }
 body #home_snippets {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 1rem;
-  padding: 0 5rem;
+  padding: 0 10rem;
   margin: 5rem 0 0 0;
 }
 body #home_snippets #snippet {
-  max-width: 25rem;
   background-color: transparent;
   padding: 0.3rem;
   box-shadow: 5px 5px #3f3f3f;
   border-radius: 0.3rem;
   border: 1px solid #3f3f3f;
-  width: max-content;
 }
 body #home_snippets #snippet div {
   background-color: #3f3f3f;
@@ -183,4 +181,63 @@ body #snippets_header a button {
 body #snippets_header a button:hover {
   cursor: pointer;
   background-color: #2e2e2e;
+}
+body #snippets_snippets {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0 35rem;
+  margin: 5rem 0 0 0;
+}
+body #snippets_snippets .recentsnippets {
+  font-size: 2rem;
+  color: #3f3f3f;
+  text-align: center;
+  margin: 0 0 4rem 0;
+  text-transform: uppercase;
+}
+body #snippets_snippets #snippet {
+  background-color: transparent;
+  padding: 0.3rem;
+  box-shadow: 5px 5px #3f3f3f;
+  border-radius: 0.3rem;
+  border: 1px solid #3f3f3f;
+}
+body #snippets_snippets #snippet div {
+  background-color: #3f3f3f;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  display: flex;
+  gap: 0.5rem;
+  height: 100% !important;
+  justify-content: space-between;
+}
+body #snippets_snippets #snippet div div {
+  display: flex;
+  flex-direction: column;
+}
+body #snippets_snippets #snippet div div h2 {
+  color: #dddddd;
+  text-transform: uppercase;
+}
+body #snippets_snippets #snippet div div .tag {
+  padding: 0.2rem 0.6rem;
+  font-size: 1rem;
+  background-color: transparent;
+  border: 1px solid #dddddd;
+  border-radius: 0.15rem;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  width: max-content;
+  color: #dddddd;
+}
+body #snippets_snippets #snippet div .created {
+  color: #dddddd;
+}
+body #snippets_snippets #snippet div .created .text {
+  text-decoration: underline;
+  width: max-content;
+}
+body #snippets_snippets #snippet div .created span {
+  color: #dddddd;
 }/*# sourceMappingURL=style.css.map */

@@ -92,18 +92,16 @@ body {
 
 	#home_snippets {
 		display: flex;
-		flex-wrap: wrap;
+		flex-direction: column;
 		gap: 1rem;
-		padding: 0 5rem;
+		padding: 0 10rem;
 		margin: 5rem 0 0 0;
 		#snippet {
-			max-width: 25rem;
 			background-color: transparent;
 			padding: 0.3rem;
 			box-shadow: 5px 5px $grey;
 			border-radius: 0.3rem;
 			border: 1px solid $grey;
-			width: max-content;
 			div {
 				background-color: $grey;
 				padding: 0.5rem;
@@ -196,6 +194,66 @@ body {
 				&:hover {
 					cursor: pointer;
 					background-color: $hoverGrey;
+				}
+			}
+		}
+	}
+
+	#snippets_snippets {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		padding: 0 35rem;
+		margin: 5rem 0 0 0;
+		.recentsnippets {
+			font-size: 2rem;
+			color: $grey;
+			text-align: center;
+			margin: 0 0 4rem 0;
+			text-transform: uppercase;
+		}
+		#snippet {
+			background-color: transparent;
+			padding: 0.3rem;
+			box-shadow: 5px 5px $grey;
+			border-radius: 0.3rem;
+			border: 1px solid $grey;
+			div {
+				background-color: $grey;
+				padding: 0.5rem;
+				border-radius: 0.3rem;
+				display: flex;
+				gap: 0.5rem;
+				height: 100% !important;
+				justify-content: space-between;
+				div {
+					display: flex;
+					flex-direction: column;
+					h2 {
+						color: $white;
+						text-transform: uppercase;
+					}
+					.tag {
+						padding: 0.2rem 0.6rem;
+						font-size: 1rem;
+						background-color: transparent;
+						border: 1px solid $white;
+						border-radius: 0.15rem;
+						transition: all 0.3s;
+						text-transform: uppercase;
+						width: max-content;
+						color: $white;
+					}
+				}
+				.created {
+					color: $white;
+					.text {
+						text-decoration: underline;
+						width: max-content;
+					}
+					span {
+						color: $white;
+					}
 				}
 			}
 		}

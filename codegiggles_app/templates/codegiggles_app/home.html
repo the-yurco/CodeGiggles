@@ -40,19 +40,19 @@
 			</div>
 		</section>
 
-		<section id="home_snippets">
+		<section id="snippets_snippets">
+			<h2 class="recentsnippets">Recent Snippets</h2>
 			{% for snippet in snippets %}
 			<div id="snippet">
 				<div>
-					<h2>{{ snippet.title }}</h2>
-					<pre>{{ snippet.code }}</pre>
-					<div class="pecka">
+					<div>
+						<h2>{{ snippet.title }}</h2>
 						<p class="tag">{{ snippet.language }}</p>
-						<p class="created">
-							<span class="text"> Created: </span>
-							<span>{{ snippet.created_at }}</span>
-						</p>
 					</div>
+					<p class="created">
+						<span class="text"> Created: </span>
+						<span>{{ snippet.created_at }}</span>
+					</p>
 				</div>
 			</div>
 			{% endfor %}

@@ -13,6 +13,12 @@
 		<title>{{ snippet.title }}</title>
 	</head>
 	<body>
+		<section id="snippets_header">
+			<a href="{% url 'home' %}" id="logobtn"
+				><h1 id="logo">Code Snippets</h1></a
+			>
+		</section>
+
 		<section id="snippet_detail">
 			<div>
 				<h2>{{ snippet.title }}</h2>

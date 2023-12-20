@@ -5,7 +5,7 @@ from .forms import SnippetForm
 
 def home(request):
   #! latest 8 snippets
-  snippets = Snippet.objects.all().order_by('-created_at')[:8]
+  snippets = Snippet.objects.all().order_by('-created_at')[:4]
   return render(request, 'codegiggles_app/home.html', {'snippets': snippets})
  
 def snippets(request):

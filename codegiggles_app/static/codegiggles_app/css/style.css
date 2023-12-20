@@ -327,4 +327,34 @@ body #form form div .form_btns button {
 body #form form div .form_btns a {
   color: #3f3f3f;
   background-color: #dddddd;
+}
+body #snippet_detail {
+  display: grid;
+  place-items: center;
+}
+body #snippet_detail div {
+  border: 1px solid #3f3f3f;
+  border-radius: 0.3rem;
+  padding: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+body #snippet_detail div h2 {
+  color: #3f3f3f;
+}
+body #snippet_detail div .tag {
+  border: 1px solid #3f3f3f;
+  width: max-content;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.3rem;
+}
+body #snippet_detail div p {
+  color: #3f3f3f;
+}
+body #snippet_detail div pre {
+  background-color: #2e2e2e;
+  color: #dddddd;
+  padding: 0.3rem;
+  border-radius: 0.3rem;
 }/*# sourceMappingURL=style.css.map */

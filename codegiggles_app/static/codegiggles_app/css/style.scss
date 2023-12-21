@@ -12,6 +12,7 @@ body {
 	height: 100vh;
 	font-weight: normal;
 	background-color: $white !important;
+	position: relative;
 
 	i {
 		font-family: sans-serif !important;
@@ -199,4 +200,32 @@ form {
 	border: none;
 	display: grid;
 	place-items: center;
+}
+
+// UPOZORNUJEM NA VELMI SKAREDY A UBOHY PRIPAD VAZNEJ NUDZE KEDY SOM FAKT NIC NEZVLADAL A NECHCELO SA MI
+
+.left-col {
+	position: fixed !important;
+	top: 0px !important;
+}
+
+.between-col {
+	position: relative;
+	top: 10%;
+	left: 32%;
+	// transform: translate(-50%, -50%);
+}
+
+.between-col2 {
+	position: relative;
+	top: 8%;
+	left: 32%;
+	// transform: translate(-50%, -50%);
+}
+
+.right-col {
+	position: fixed;
+	top: 2%;
+	left: 83%;
+	transform: translate(-50%, -50%);
 }

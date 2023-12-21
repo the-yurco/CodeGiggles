@@ -11,6 +11,7 @@ body {
   height: 100vh;
   font-weight: normal;
   background-color: #dddddd !important;
+  position: relative;
 }
 body i {
   font-family: sans-serif !important;
@@ -177,4 +178,28 @@ form div p textarea {
   border: none;
   display: grid;
   place-items: center;
+}
+
+.left-col {
+  position: fixed !important;
+  top: 0px !important;
+}
+
+.between-col {
+  position: relative;
+  top: 10%;
+  left: 32%;
+}
+
+.between-col2 {
+  position: relative;
+  top: 8%;
+  left: 32%;
+}
+
+.right-col {
+  position: fixed;
+  top: 2%;
+  left: 83%;
+  transform: translate(-50%, -50%);
 }/*# sourceMappingURL=style.css.map */

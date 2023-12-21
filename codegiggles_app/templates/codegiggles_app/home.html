@@ -29,7 +29,7 @@
 	</head>
 	<body>
 		<div class="row home">
-			<div class="col-4 left-bar d-flex mt-1">
+			<div class="col-4 left-bar d-flex mt-1 left-col">
 				<div class="row container-fluid">
 					<div class="col-6"></div>
 					<div class="col-6">
@@ -94,7 +94,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-4 feed mt-2">
+			<div class="col-4 feed mt-2 between-col2">
 				<div class="header">
 					<h5 class="p-0 header">Home</h5>
 				</div>
@@ -122,7 +122,7 @@
 					{% endfor %}
 				</div>
 			</div>
-			<div class="col-4 right-bar mt-1">
+			<div class="col-4 right-bar mt-1 right-col">
 				<div class="search-box">
 					<form action="{% url 'snippets' %}" method="get">
 						<input

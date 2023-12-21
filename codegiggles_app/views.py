@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Snippet
 from .forms import SnippetForm
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 
 
 def home(request):
   #! latest 8 snippets
-  snippets = Snippet.objects.all().order_by('-created_at')[:4]
+  snippets = Snippet.objects.all().order_by('-created_at')
   return render(request, 'codegiggles_app/home.html', {'snippets': snippets})
  
 def snippets(request):
@@ -27,3 +29,15 @@ def add_snippet(request):
 def snippet_detail(request, snippet_id):
    snippet = get_object_or_404(Snippet, pk=snippet_id)
    return render(request, 'codegiggles_app/snippet_detail.html', {'snippet': snippet})
+
+def like(request, snippet_id):
+    snippet = get_object_or_404(Snippet, id=snippet_id)
+    snippet.likes += 1
+    snippet.save()
+    return HttpResponseRedirect(reverse('snippets'))
+
+def dislike(request, snippet_id):
+    snippet = get_object_or_404(Snippet, id=snippet_id)
+    snippet.dislikes += 1
+    snippet.save()
+    return HttpResponseRedirect(reverse('snippets'))

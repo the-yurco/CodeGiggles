@@ -1,360 +1,165 @@
 @import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Silkscreen:wght@400;700&display=swap");
+@import url("http://fonts.cdnfonts.com/css/helvetica-neue-9");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Share Tech Mono";
+  font-family: "Share Tech Mono" !important;
 }
 
 body {
+  height: 100vh;
+  font-weight: normal;
   background-color: #dddddd !important;
 }
-body #home_navbar {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 2rem 0;
+body i {
+  font-family: sans-serif !important;
 }
-body #home_navbar #logo {
-  font-family: "Silkscreen";
-  font-size: 3rem;
-  color: #3f3f3f;
+body input:active, body input:focus,
+body textarea:active,
+body textarea:focus {
+  box-shadow: none;
+  outline: none;
 }
-body #home_navbar #links {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
+
+.tweets {
+  border-left: 1px solid #888888;
+  border-right: 1px solid #888888;
+  border-bottom: 1px solid #888888;
 }
-body #home_navbar #links .navbar_link button {
-  padding: 0.2rem 2rem;
-  font-size: 1rem;
-  background-color: transparent;
-  border: 1px solid #3f3f3f;
-  border-radius: 0.15rem;
-  transition: all 0.3s;
-  text-transform: uppercase;
+
+#snippet {
+  border-top: 1px solid #888888;
 }
-body #home_navbar #links .navbar_link button:hover {
-  background-color: #3f3f3f;
-  color: #dddddd;
-  cursor: pointer;
-}
-body #home_navbar #add_snippet_btn button {
-  padding: 0.2rem 2rem;
-  font-size: 1.2rem;
-  background-color: #3f3f3f;
-  color: #dddddd;
-  border: none;
-  border-radius: 0.15rem;
-  transition: all 0.3s;
-  text-transform: uppercase;
-}
-body #home_navbar #add_snippet_btn button:hover {
-  background-color: #2e2e2e;
-  cursor: pointer;
-}
-body #home_hero_section {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 10rem 5rem;
-}
-body #home_hero_section #text {
-  width: 28rem;
-  font-size: 1.8rem;
-  color: #3f3f3f;
-}
-body #home_hero_section #link a button {
-  padding: 0.3rem 2.2rem;
-  font-size: 1.5rem;
-  background-color: #3f3f3f;
-  color: #dddddd;
-  border: none;
-  border-radius: 0.15rem;
-  transition: all 0.3s;
-  text-transform: uppercase;
-}
-body #home_hero_section #link a button:hover {
-  background-color: #2e2e2e;
-  cursor: pointer;
-}
-body #linkales {
-  text-decoration: none !important;
-  color: #dddddd !important;
-}
-body #home_snippets {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 0 10rem;
-  margin: 5rem 0 0 0;
-}
-body #home_snippets #snippet {
-  background-color: transparent;
-  padding: 0.3rem;
-  box-shadow: 5px 5px #3f3f3f;
-  border-radius: 0.3rem;
-  border: 1px solid #3f3f3f;
-}
-body #home_snippets #snippet div {
-  background-color: #3f3f3f;
-  padding: 0.5rem;
-  border-radius: 0.3rem;
-  display: flex;
-  gap: 0.5rem;
-  flex-direction: column;
-  height: 100% !important;
-  justify-content: space-between;
-}
-body #home_snippets #snippet div h2 {
-  color: #dddddd;
-  text-transform: uppercase;
-}
-body #home_snippets #snippet div h2 a {
-  text-decoration: none !important;
-  color: #dddddd !important;
-}
-body #home_snippets #snippet div pre {
-  background-color: #f4f4f4;
-  padding: 10px;
-  border: 1px solid #ccc;
-  overflow: auto;
-  height: 100%;
-}
-body #home_snippets #snippet div .tag {
-  padding: 0.2rem 2rem;
-  font-size: 1rem;
-  background-color: transparent;
-  border: 1px solid #dddddd;
-  border-radius: 0.15rem;
-  transition: all 0.3s;
-  text-transform: uppercase;
-  width: max-content;
-  color: #dddddd;
-}
-body #home_snippets #snippet div .created {
-  color: #dddddd;
-}
-body #home_snippets #snippet div .created .text {
-  text-decoration: underline;
-  width: max-content;
-}
-body #home_snippets #snippet div .created span {
-  color: #dddddd;
-}
-body #footer {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 10rem 5rem 0;
-}
-body #footer #logo {
-  font-family: "Silkscreen";
-  font-size: 3rem;
-  color: #3f3f3f;
-}
-body #footer #copyright {
-  color: #3f3f3f;
-  font-size: 1.2rem;
-}
-body #snippets_header {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  padding: 2rem 0;
-}
-body #snippets_header #logo {
-  font-family: "Silkscreen";
-  font-size: 3rem;
-  color: #3f3f3f;
-}
-body #snippets_header input {
-  padding: 0.3rem 1rem;
-  font-size: 1.3rem;
-  border-radius: 0.3rem;
-  border: 1px solid #3f3f3f;
-}
-body #snippets_header a {
-  width: 17.3rem;
-}
-body #snippets_header a button {
-  padding: 0.3rem 1rem;
-  width: 100%;
-  border-radius: 0.3rem;
-  border: 1px solid #3f3f3f;
-  background-color: #3f3f3f;
-  color: #dddddd;
-  font-size: 1.3rem;
-  transition: all 0.3s;
-}
-body #snippets_header a button:hover {
-  cursor: pointer;
-  background-color: #2e2e2e;
-}
-body #snippets_snippets {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 0 35rem;
-  margin: 5rem 0 0 0;
-}
-body #snippets_snippets .recentsnippets {
+
+#logo {
+  font-family: "Silkscreen" !important;
   font-size: 2rem;
   color: #3f3f3f;
-  text-align: center;
-  margin: 0 0 4rem 0;
-  text-transform: uppercase;
+  margin: 0 0 2rem 0;
 }
-body #snippets_snippets #snippet {
-  background-color: transparent;
-  padding: 0.3rem;
-  box-shadow: 5px 5px #3f3f3f;
-  border-radius: 0.3rem;
-  border: 1px solid #3f3f3f;
+
+svg {
+  color: #3f3f3f !important;
+  min-width: 1rem !important;
 }
-body #snippets_snippets #snippet div {
-  background-color: #3f3f3f;
-  padding: 0.5rem;
-  border-radius: 0.3rem;
+
+.link-menu {
+  color: #2e2e2e;
   display: flex;
+  align-items: center;
   gap: 0.5rem;
-  height: 100% !important;
-  justify-content: space-between;
+  margin: 0 0 0 0.3rem;
 }
-body #snippets_snippets #snippet div div {
+
+.header {
+  color: #2e2e2e;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.search-box input {
+  background-color: #cacaca;
+}
+
+form div {
+  padding: 0 1rem;
+}
+form div p {
   display: flex;
   flex-direction: column;
 }
-body #snippets_snippets #snippet div div h2 {
-  color: #dddddd;
-  text-transform: uppercase;
-}
-body #snippets_snippets #snippet div div .tag {
-  padding: 0.2rem 0.6rem;
-  font-size: 1rem;
-  background-color: transparent;
-  border: 1px solid #dddddd;
-  border-radius: 0.15rem;
-  transition: all 0.3s;
-  text-transform: uppercase;
-  width: max-content;
-  color: #dddddd;
-}
-body #snippets_snippets #snippet div .created {
-  color: #dddddd;
-  width: max-content;
-}
-body #snippets_snippets #snippet div .created .text {
-  text-decoration: underline;
-  width: max-content;
-}
-body #snippets_snippets #snippet div .created span {
-  color: #dddddd;
-}
-body #snippets_header #logobtn {
-  width: max-content;
-  text-align: center;
-  text-decoration: none;
-}
-body #snippets_header #logobtn h1 {
-  width: max-content;
-}
-body #form {
-  display: grid;
-  place-items: center;
-}
-body #form form {
-  background-color: #dddddd;
-  padding: 0.3rem;
-  border-radius: 0.3rem;
-  border: 1px solid #dddddd;
-  box-shadow: 5px 5px #3f3f3f;
-  border: 1px solid #3f3f3f;
-  gap: 1rem;
-}
-body #form form div {
-  display: flex;
-  flex-direction: column;
-  background-color: #3f3f3f;
-  padding: 0.8rem;
-  border-radius: 0.3rem;
-  gap: 1rem;
-}
-body #form form div p {
-  display: flex;
-  flex-direction: column;
-}
-body #form form div p label {
-  color: #dddddd;
-  text-transform: uppercase;
-  font-size: 1.4rem;
-}
-body #form form div p input,
-body #form form div p textarea {
+form div p input {
   padding: 0.3rem 1rem;
-  font-size: 1.3rem;
   border-radius: 0.3rem;
-  border: 1px solid #3f3f3f;
-}
-body #form form div .form_btns {
-  margin: 1rem 0;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-body #form form div .form_btns button,
-body #form form div .form_btns a {
-  padding: 0.4rem 2rem;
-  font-size: 1.2rem;
+  border: none;
   background-color: transparent;
-  border: 1px solid #dddddd;
-  border-radius: 0.15rem;
-  transition: all 0.3s;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: all 0.3s;
-  text-align: center;
-}
-body #form form div .form_btns button:hover,
-body #form form div .form_btns a:hover {
-  cursor: pointer;
-}
-body #form form div .form_btns button {
-  color: #dddddd;
-}
-body #form form div .form_btns a {
-  color: #3f3f3f;
-  background-color: #dddddd;
-}
-body #snippet_detail {
-  display: grid;
-  place-items: center;
-}
-body #snippet_detail div {
   border: 1px solid #3f3f3f;
+}
+form div p textarea {
+  padding: 0.3rem 1rem;
   border-radius: 0.3rem;
-  padding: 0.3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-body #snippet_detail div h2 {
-  color: #3f3f3f;
-}
-body #snippet_detail div .tag {
+  border: none;
+  background-color: transparent;
   border: 1px solid #3f3f3f;
-  width: max-content;
-  padding: 0.3rem 0.6rem;
+}
+
+.form_btns {
+  margin-bottom: 1rem;
+}
+.form_btns button {
+  padding: 0.3rem 1rem;
   border-radius: 0.3rem;
+  border: 1px solid #2e2e2e;
 }
-body #snippet_detail div p {
-  color: #3f3f3f;
-}
-body #snippet_detail div pre {
+.form_btns a {
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
   background-color: #2e2e2e;
   color: #dddddd;
-  padding: 0.3rem;
+}
+
+.search-bar {
   border-radius: 0.3rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.header a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#snippet_detail pre {
+  background-color: #2e2e2e;
+  padding: 0.3rem;
+  color: #dddddd;
+  border-radius: 0.3rem;
+}
+#snippet_detail .tag {
+  border: 1px solid #2e2e2e;
+  padding: 0.1rem 0.3rem;
+  width: max-content;
+  border-radius: 0.3rem;
+}
+
+#snippet #linkales {
+  color: #27005d;
+}
+#snippet .tag {
+  border: 1px solid #2e2e2e;
+  color: #2e2e2e;
+  padding: 0.1rem 0.3rem;
+  width: max-content;
+  border-radius: 0.3rem;
+}
+#snippet .created span {
+  color: #3f3f3f;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+.actions .dislikelike {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#like_dislike_form .buttonises {
+  background-color: #cacaca;
+  border: none;
+  padding: 0.1rem;
+  border-radius: 0.3rem;
+}
+#like_dislike_form .buttonises svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=style.css.map */

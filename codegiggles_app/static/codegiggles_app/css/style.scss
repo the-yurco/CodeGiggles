@@ -1,381 +1,184 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Silkscreen:wght@400;700&display=swap');
 @import './variables';
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Silkscreen:wght@400;700&display=swap');
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: 'Share Tech Mono';
+	font-family: 'Share Tech Mono' !important;
+}
+@import url('http://fonts.cdnfonts.com/css/helvetica-neue-9');
+body {
+	height: 100vh;
+	font-weight: normal;
+	background-color: $white !important;
+
+	i {
+		font-family: sans-serif !important;
+	}
+
+	input,
+	textarea {
+		&:active,
+		&:focus {
+			// border: ;
+			box-shadow: none;
+			outline: none;
+		}
+	}
 }
 
-body {
-	background-color: $white !important;
-	#home_navbar {
-		display: flex;
-		justify-content: space-around;
-		align-items: center;
-		padding: 2rem 0;
-		#logo {
-			font-family: 'Silkscreen';
-			font-size: 3rem;
-			color: $grey;
-		}
-		#links {
-			display: flex;
-			align-items: center;
-			gap: 2rem;
-			.navbar_link {
-				button {
-					padding: 0.2rem 2rem;
-					font-size: 1rem;
-					background-color: transparent;
-					border: 1px solid $grey;
-					border-radius: 0.15rem;
-					transition: all 0.3s;
-					text-transform: uppercase;
-					&:hover {
-						background-color: $grey;
-						color: $white;
-						cursor: pointer;
-					}
-				}
-			}
-		}
-		#add_snippet_btn {
-			button {
-				padding: 0.2rem 2rem;
-				font-size: 1.2rem;
-				background-color: $grey;
-				color: $white;
-				border: none;
-				border-radius: 0.15rem;
-				transition: all 0.3s;
-				text-transform: uppercase;
-				&:hover {
-					background-color: $hoverGrey;
-					cursor: pointer;
-				}
-			}
-		}
+.tweets {
+	border-left: 1px solid $borderGrey;
+	border-right: 1px solid $borderGrey;
+	border-bottom: 1px solid $borderGrey;
+}
+
+#snippet {
+	border-top: 1px solid $borderGrey;
+}
+
+#logo {
+	font-family: 'Silkscreen' !important;
+	font-size: 2rem;
+	color: $grey;
+	margin: 0 0 2rem 0;
+}
+
+svg {
+	color: $grey !important;
+	min-width: 1rem !important;
+}
+
+.link-menu {
+	color: $hoverGrey;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin: 0 0 0 0.3rem;
+}
+
+.header {
+	color: $hoverGrey;
+}
+
+.search-box {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+
+	input {
+		background-color: $inputGrey;
 	}
+}
 
-	#home_hero_section {
-		display: flex;
-		justify-content: space-evenly;
-		align-items: center;
-		padding: 10rem 5rem;
-
-		#text {
-			width: 28rem;
-			font-size: 1.8rem;
-			color: $grey;
-		}
-
-		#link {
-			a {
-				button {
-					padding: 0.3rem 2.2rem;
-					font-size: 1.5rem;
-					background-color: $grey;
-					color: $white;
-					border: none;
-					border-radius: 0.15rem;
-					transition: all 0.3s;
-					text-transform: uppercase;
-					&:hover {
-						background-color: $hoverGrey;
-						cursor: pointer;
-					}
-				}
-			}
-		}
-	}
-
-	#linkales {
-		text-decoration: none !important;
-		color: $white !important;
-	}
-
-	#home_snippets {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-		padding: 0 10rem;
-		margin: 5rem 0 0 0;
-		#snippet {
-			background-color: transparent;
-			padding: 0.3rem;
-			box-shadow: 5px 5px $grey;
-			border-radius: 0.3rem;
-			border: 1px solid $grey;
-			div {
-				background-color: $grey;
-				padding: 0.5rem;
-				border-radius: 0.3rem;
-				display: flex;
-				gap: 0.5rem;
-				flex-direction: column;
-				height: 100% !important;
-				justify-content: space-between;
-				h2 {
-					color: $white;
-					text-transform: uppercase;
-					a {
-						text-decoration: none !important;
-						color: $white !important;
-					}
-				}
-				pre {
-					background-color: #f4f4f4;
-					padding: 10px;
-					border: 1px solid #ccc;
-					overflow: auto;
-					height: 100%;
-				}
-				.tag {
-					padding: 0.2rem 2rem;
-					font-size: 1rem;
-					background-color: transparent;
-					border: 1px solid $white;
-					border-radius: 0.15rem;
-					transition: all 0.3s;
-					text-transform: uppercase;
-					width: max-content;
-					color: $white;
-				}
-				.created {
-					color: $white;
-					.text {
-						text-decoration: underline;
-						width: max-content;
-					}
-					span {
-						color: $white;
-					}
-				}
-			}
-		}
-	}
-	#footer {
-		display: flex;
-		justify-content: space-evenly;
-		align-items: center;
-		padding: 10rem 5rem 0;
-		#logo {
-			font-family: 'Silkscreen';
-			font-size: 3rem;
-			color: $grey;
-		}
-
-		#copyright {
-			color: $grey;
-			font-size: 1.2rem;
-		}
-	}
-	#snippets_header {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		align-items: center;
-		gap: 1rem;
-		padding: 2rem 0;
-		#logo {
-			font-family: 'Silkscreen';
-			font-size: 3rem;
-			color: $grey;
-		}
-		input {
-			padding: 0.3rem 1rem;
-			font-size: 1.3rem;
-			border-radius: 0.3rem;
-			border: 1px solid $grey;
-		}
-		a {
-			width: 17.3rem;
-			button {
-				padding: 0.3rem 1rem;
-				width: 100%;
-				border-radius: 0.3rem;
-				border: 1px solid $grey;
-				background-color: $grey;
-				color: $white;
-				font-size: 1.3rem;
-				transition: all 0.3s;
-				&:hover {
-					cursor: pointer;
-					background-color: $hoverGrey;
-				}
-			}
-		}
-	}
-
-	#snippets_snippets {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-		padding: 0 35rem;
-		margin: 5rem 0 0 0;
-		.recentsnippets {
-			font-size: 2rem;
-			color: $grey;
-			text-align: center;
-			margin: 0 0 4rem 0;
-			text-transform: uppercase;
-		}
-		#snippet {
-			background-color: transparent;
-			padding: 0.3rem;
-			box-shadow: 5px 5px $grey;
-			border-radius: 0.3rem;
-			border: 1px solid $grey;
-			div {
-				background-color: $grey;
-				padding: 0.5rem;
-				border-radius: 0.3rem;
-				display: flex;
-				gap: 0.5rem;
-				height: 100% !important;
-				justify-content: space-between;
-				div {
-					display: flex;
-					flex-direction: column;
-					h2 {
-						color: $white;
-						text-transform: uppercase;
-					}
-					.tag {
-						padding: 0.2rem 0.6rem;
-						font-size: 1rem;
-						background-color: transparent;
-						border: 1px solid $white;
-						border-radius: 0.15rem;
-						transition: all 0.3s;
-						text-transform: uppercase;
-						width: max-content;
-						color: $white;
-					}
-				}
-				.created {
-					color: $white;
-					width: max-content;
-					.text {
-						text-decoration: underline;
-						width: max-content;
-					}
-					span {
-						color: $white;
-					}
-				}
-			}
-		}
-	}
-
-	#snippets_header {
-		#logobtn {
-			width: max-content;
-			text-align: center;
-			text-decoration: none;
-			h1 {
-				width: max-content;
-			}
-		}
-	}
-
-	#form {
-		display: grid;
-		place-items: center;
-		form {
-			background-color: $white;
-			padding: 0.3rem;
-			border-radius: 0.3rem;
-			border: 1px solid $white;
-			box-shadow: 5px 5px $grey;
-			border: 1px solid $grey;
-			gap: 1rem;
-			div {
-				display: flex;
-				flex-direction: column;
-				background-color: $grey;
-				padding: 0.8rem;
-				border-radius: 0.3rem;
-				gap: 1rem;
-				p {
-					display: flex;
-					flex-direction: column;
-					label {
-						color: $white;
-						text-transform: uppercase;
-						font-size: 1.4rem;
-					}
-					input,
-					textarea {
-						padding: 0.3rem 1rem;
-						font-size: 1.3rem;
-						border-radius: 0.3rem;
-						border: 1px solid #3f3f3f;
-					}
-				}
-				.form_btns {
-					margin: 1rem 0;
-					display: flex;
-					justify-content: center;
-					gap: 1rem;
-					button,
-					a {
-						padding: 0.4rem 2rem;
-						font-size: 1.2rem;
-						background-color: transparent;
-						border: 1px solid $white;
-						border-radius: 0.15rem;
-						transition: all 0.3s;
-						text-transform: uppercase;
-						text-decoration: none;
-						transition: all 0.3s;
-						text-align: center;
-						&:hover {
-							cursor: pointer;
-						}
-					}
-					button {
-						color: $white;
-					}
-					a {
-						color: $grey;
-						background-color: $white;
-					}
-				}
-			}
-		}
-	}
-
-	#snippet_detail {
-		display: grid;
-		place-items: center;
-		div {
-			border: 1px solid $grey;
-			border-radius: 0.3rem;
-			padding: 0.3rem;
+form {
+	div {
+		padding: 0 1rem;
+		p {
 			display: flex;
 			flex-direction: column;
-			gap: 1rem;
-			h2 {
-				color: $grey;
-			}
-			.tag {
+			input {
+				padding: 0.3rem 1rem;
+				border-radius: 0.3rem;
+				border: none;
+				background-color: transparent;
 				border: 1px solid $grey;
-				width: max-content;
-				padding: 0.3rem 0.6rem;
+			}
+			textarea {
+				padding: 0.3rem 1rem;
 				border-radius: 0.3rem;
+				border: none;
+				background-color: transparent;
+				border: 1px solid $grey;
 			}
-			p {
-				color: $grey;
-			}
-			pre {
-				background-color: $hoverGrey;
-				color: $white;
-				padding: 0.3rem;
-				border-radius: 0.3rem;
-			}
+		}
+	}
+}
+
+.form_btns {
+	margin-bottom: 1rem;
+	button {
+		padding: 0.3rem 1rem;
+		border-radius: 0.3rem;
+		border: 1px solid $hoverGrey;
+	}
+	a {
+		padding: 0.5rem 1rem;
+		border-radius: 0.3rem;
+		background-color: $hoverGrey;
+		color: $white;
+	}
+}
+
+.search-bar {
+	border-radius: 0.3rem;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	a {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		svg {
+			// width: 2rem;
+		}
+	}
+}
+
+#snippet_detail {
+	pre {
+		background-color: $hoverGrey;
+		padding: 0.3rem;
+		color: $white;
+		border-radius: 0.3rem;
+	}
+	.tag {
+		border: 1px solid $hoverGrey;
+		padding: 0.1rem 0.3rem;
+		width: max-content;
+		border-radius: 0.3rem;
+	}
+}
+
+#snippet {
+	#linkales {
+		color: $header;
+	}
+	.tag {
+		border: 1px solid $tag;
+		color: $tag;
+		padding: 0.1rem 0.3rem;
+		width: max-content;
+		border-radius: 0.3rem;
+	}
+	.created span {
+		color: $date;
+	}
+}
+
+.actions {
+	display: flex;
+	justify-content: space-between;
+	.dislikelike {
+		display: flex;
+		gap: 0.5rem;
+	}
+}
+
+#like_dislike_form {
+	.buttonises {
+		background-color: $inputGrey;
+		border: none;
+		padding: 0.1rem;
+		border-radius: 0.3rem;
+		svg {
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 	}
 }

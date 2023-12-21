@@ -1,45 +1,232 @@
-<!-- codegiggles_app/templates/codegiggles_app/snippets.html -->
 {% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'codegiggles_app/css/style.css' %}" />
-    <title>Code Snippets | Snippets</title>
-</head>
-<body>
-    <section id="snippets_header">
-        <a href="{% url 'home' %}" id="logobtn"><h1 id="logo">Code Snippets</h1></a>
-        <input placeholder="Search for snippet"></input>
-        <a href="{% url 'add_snippet' %}" id="add_snippet_btn"><button>+</button></a>
-    </section>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Snippets</title>
+		<script
+			src="https://kit.fontawesome.com/71692e25c7.js"
+			crossorigin="anonymous"
+		></script>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+			integrity="sha384-xBf9KEeK+W3K3Q+xqBYJByPf1fnp0xRbISwlyZSAUu8B7VtlidM5q6eyW5MJK1R6"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="{% static 'codegiggles_app/css/style.css' %}"
+		/>
+	</head>
+	<body>
+		<div class="row home">
+			<div class="col-4 left-bar d-flex mt-1">
+				<div class="row container-fluid">
+					<div class="col-6"></div>
+					<div class="col-6">
+						<h3 id="logo">CodeGiggles</h3>
+						<p class="option">
+							<a
+								href="{% url 'home' %}"
+								class="fs-5 text-decoration-none fw-medium link-menu"
+							>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									height="16"
+									width="18"
+									viewBox="0 0 576 512"
+								>
+									<path
+										fill="#2e2e2e"
+										d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"
+									/>
+								</svg>
+								Home
+							</a>
+						</p>
+						<p class="option">
+							<a
+								href="{% url 'snippets' %}"
+								class="fs-5 text-decoration-none fw-medium link-menu"
+							>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									height="16"
+									width="12"
+									viewBox="0 0 384 512"
+								>
+									<path
+										fill="#2e2e2e"
+										d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128z"
+									/>
+								</svg>
+								Snippets
+							</a>
+						</p>
+						<p class="option">
+							<a
+								href="{% url 'add_snippet' %}"
+								class="fs-5 text-decoration-none fw-medium link-menu"
+							>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									height="16"
+									width="14"
+									viewBox="0 0 448 512"
+								>
+									<path
+										fill="#2e2e2e"
+										d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
+									/>
+								</svg>
+								Add Snippet
+							</a>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-4 feed mt-2">
+				<div class="header">
+					<h5 class="p-0 header">Snippets</h5>
+				</div>
+				<div class="tweets">
+					{% for snippet in snippets %}
+					<div id="snippet" class="px-3 py-1">
+						<div>
+							<div>
+								<h2>
+									<a
+										href="{% url 'snippet_detail' snippet_id=snippet.id %}"
+										id="linkales"
+										class="fs-5"
+										>{{ snippet.title }}</a
+									>
+								</h2>
+								<span>{{ snippet.description }}</span>
+								<p class="tag">{{ snippet.language }}</p>
+							</div>
+							<div class="actions">
+								<p class="created">
+									<span class="fs-6 text"> Created: </span>
+									<span class="fs-6 text">{{ snippet.created_at }}</span>
+								</p>
+								<div class="dislikelike">
+									<form
+										action="{% url 'like' snippet.id %}"
+										method="post"
+										id="like_dislike_form"
+									>
+										{% csrf_token %}
+										<button type="submit" class="buttonises">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												height="16"
+												width="16"
+												viewBox="0 0 512 512"
+											>
+												<path
+													fill="#2e2e2e"
+													d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2H464c26.5 0 48 21.5 48 48c0 18.5-10.5 34.6-25.9 42.6C497 275.4 504 288.9 504 304c0 23.4-16.8 42.9-38.9 47.1c4.4 7.3 6.9 15.8 6.9 24.9c0 21.3-13.9 39.4-33.1 45.6c.7 3.3 1.1 6.8 1.1 10.4c0 26.5-21.5 48-48 48H294.5c-19 0-37.5-5.6-53.3-16.1l-38.5-25.7C176 420.4 160 390.4 160 358.3V320 272 247.1c0-29.2 13.3-56.7 36-75l7.4-5.9c26.5-21.2 44.6-51 51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192H96c17.7 0 32 14.3 32 32V448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z"
+												/>
+											</svg>
+										</button>
+									</form>
+									<span class="like-count">{{ snippet.likes }}</span>
 
-    <section id="snippets_snippets">
-        {% for snippet in snippets %}
-        <div id="snippet">
-            <div>
-                <div>
-                    <h2><a href="{% url 'snippet_detail' snippet_id=snippet.id %}" id="linkales">{{ snippet.title }}</a></h2>
-                    <p class="tag">{{ snippet.language }}</p>
-                </div>
-                <p class="created">
-                    <span class="text"> Created: </span>
-                    <span>{{ snippet.created_at }}</span>
-                </p>
-            </div>
-        </div>
-        {% endfor %}
-    </section>
+									<form
+										action="{% url 'dislike' snippet.id %}"
+										method="post"
+										id="like_dislike_form"
+									>
+										{% csrf_token %}
+										<button type="submit" class="buttonises">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												height="16"
+												width="16"
+												viewBox="0 0 512 512"
+											>
+												<path
+													fill="#2e2e2e"
+													d="M313.4 479.1c26-5.2 42.9-30.5 37.7-56.5l-2.3-11.4c-5.3-26.7-15.1-52.1-28.8-75.2H464c26.5 0 48-21.5 48-48c0-18.5-10.5-34.6-25.9-42.6C497 236.6 504 223.1 504 208c0-23.4-16.8-42.9-38.9-47.1c4.4-7.3 6.9-15.8 6.9-24.9c0-21.3-13.9-39.4-33.1-45.6c.7-3.3 1.1-6.8 1.1-10.4c0-26.5-21.5-48-48-48H294.5c-19 0-37.5 5.6-53.3 16.1L202.7 73.8C176 91.6 160 121.6 160 153.7V192v48 24.9c0 29.2 13.3 56.7 36 75l7.4 5.9c26.5 21.2 44.6 51 51.2 84.2l2.3 11.4c5.2 26 30.5 42.9 56.5 37.7zM32 384H96c17.7 0 32-14.3 32-32V128c0-17.7-14.3-32-32-32H32C14.3 96 0 110.3 0 128V352c0 17.7 14.3 32 32 32z"
+												/>
+											</svg>
+										</button>
+									</form>
+									<span class="dislike-count">{{ snippet.dislikes }}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="col-4 right-bar mt-1">
+				<div class="search-box">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						height="16"
+						width="16"
+						viewBox="0 0 512 512"
+					>
+						<path
+							fill="#2e2e2e"
+							d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+						/>
+					</svg>
+					<input
+						type="text"
+						placeholder="Search Snippet"
+						class="search-bar border px-3 py-1"
+					/>
+				</div>
+			</div>
+		</div>
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				const likeButtons = document.querySelectorAll('.like-btn');
+				const dislikeButtons = document.querySelectorAll('.dislike-btn');
 
-    <section id="footer">
-        <div>
-            <h3 id="logo">CodeGiggles</h3>
-        </div>
-        <div id="copyright">
-            <p>Copyright © 2024 made by Yurco. All rights reserved</p>
-        </div>
-    </section>
-</body>
+				likeButtons.forEach((button) => {
+					button.addEventListener('click', () =>
+						handleLikeDislike(button, 'like')
+					);
+				});
+
+				dislikeButtons.forEach((button) => {
+					button.addEventListener('click', () =>
+						handleLikeDislike(button, 'dislike')
+					);
+				});
+
+				function handleLikeDislike(button, action) {
+					const snippetId = button.parentNode.getAttribute('data-snippet-id');
+					const formId = `#${action}-form-${snippetId}`;
+					const form = document.querySelector(formId);
+
+					fetch(form.action, {
+						method: 'POST',
+						body: new FormData(form)
+					})
+						.then((response) => response.json())
+						.then((data) => {
+							const countElement = document.querySelector(
+								`.${action}-count[data-snippet-id="${snippetId}"]`
+							);
+							countElement.textContent = data[action + 's']; // 'likes' or 'dislikes'
+						})
+						.catch((error) => console.error('Error:', error));
+				}
+			});
+		</script>
+	</body>
 </html>

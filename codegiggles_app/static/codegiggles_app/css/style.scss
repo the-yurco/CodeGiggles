@@ -113,6 +113,7 @@ form {
 
 .search-bar {
 	border-radius: 0.3rem;
+	// padding: 0.2rem 0;
 }
 
 .header {
@@ -181,4 +182,21 @@ form {
 			align-items: center;
 		}
 	}
+}
+
+.search-box {
+	form {
+		display: flex;
+		gap: 0.5rem;
+	}
+}
+
+.search_btn {
+	padding: 0.1rem 0.6rem;
+	border-radius: 0.3rem;
+	background-color: $hoverGrey;
+	color: $white;
+	border: none;
+	display: grid;
+	place-items: center;
 }

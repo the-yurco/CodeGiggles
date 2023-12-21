@@ -3,6 +3,7 @@ from .models import Snippet
 from .forms import SnippetForm
 from django.urls import reverse
 from django.http import HttpResponseRedirect
+from django.db.models import Q
 
 
 def home(request):
@@ -41,3 +42,21 @@ def dislike(request, snippet_id):
     snippet.dislikes += 1
     snippet.save()
     return HttpResponseRedirect(reverse('snippets'))
+
+def snippets(request):
+    query = request.GET.get('q')
+    snippets = Snippet.objects.all().order_by('-created_at')
+
+    if query:
+        snippets = snippets.filter(
+            Q(title__icontains=query) | 
+            Q(description__icontains=query) |
+            Q(language__icontains=query) |
+            Q(code__icontains=query)
+        )
+
+    context = {
+        'snippets': snippets,
+    }
+
+    return render(request, 'codegiggles_app/snippets.html', context)

@@ -162,4 +162,19 @@ form div p textarea {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.search-box form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.search_btn {
+  padding: 0.1rem 0.6rem;
+  border-radius: 0.3rem;
+  background-color: #2e2e2e;
+  color: #dddddd;
+  border: none;
+  display: grid;
+  place-items: center;
 }/*# sourceMappingURL=style.css.map */

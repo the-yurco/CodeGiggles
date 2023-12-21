@@ -172,61 +172,30 @@
 			</div>
 			<div class="col-4 right-bar mt-1">
 				<div class="search-box">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						height="16"
-						width="16"
-						viewBox="0 0 512 512"
-					>
-						<path
-							fill="#2e2e2e"
-							d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+					<form action="{% url 'snippets' %}" method="get">
+						<input
+							type="text"
+							name="q"
+							placeholder="Search Snippet"
+							class="search-bar border px-3 py-1"
+							value="{{ request.GET.q }}"
 						/>
-					</svg>
-					<input
-						type="text"
-						placeholder="Search Snippet"
-						class="search-bar border px-3 py-1"
-					/>
+						<button type="submit" class="search_btn">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								height="16"
+								width="16"
+								viewBox="0 0 512 512"
+							>
+								<path
+									fill="#dddddd"
+									d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+								/>
+							</svg>
+						</button>
+					</form>
 				</div>
 			</div>
 		</div>
-		<script>
-			document.addEventListener('DOMContentLoaded', function () {
-				const likeButtons = document.querySelectorAll('.like-btn');
-				const dislikeButtons = document.querySelectorAll('.dislike-btn');
-
-				likeButtons.forEach((button) => {
-					button.addEventListener('click', () =>
-						handleLikeDislike(button, 'like')
-					);
-				});
-
-				dislikeButtons.forEach((button) => {
-					button.addEventListener('click', () =>
-						handleLikeDislike(button, 'dislike')
-					);
-				});
-
-				function handleLikeDislike(button, action) {
-					const snippetId = button.parentNode.getAttribute('data-snippet-id');
-					const formId = `#${action}-form-${snippetId}`;
-					const form = document.querySelector(formId);
-
-					fetch(form.action, {
-						method: 'POST',
-						body: new FormData(form)
-					})
-						.then((response) => response.json())
-						.then((data) => {
-							const countElement = document.querySelector(
-								`.${action}-count[data-snippet-id="${snippetId}"]`
-							);
-							countElement.textContent = data[action + 's']; // 'likes' or 'dislikes'
-						})
-						.catch((error) => console.error('Error:', error));
-				}
-			});
-		</script>
 	</body>
 </html>

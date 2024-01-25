@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Add Snippet</title>
+		<title>Register</title>
 		<script
 			src="https://kit.fontawesome.com/71692e25c7.js"
 			crossorigin="anonymous"
@@ -100,8 +100,8 @@
 				</div>
 				<div class="tweets">
 					<section id="form">
-						<form method="post" action="{% url 'register' %}">
-							{% csrf_token %} {{ user_form.as_p }}
+						<form method="post">
+							{% csrf_token %} {{ form.as_p }}
 							<button type="submit">Register</button>
 						</form>
 					</section>

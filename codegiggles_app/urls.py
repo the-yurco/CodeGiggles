@@ -8,7 +8,6 @@ urlpatterns = [
     path('add_snippet/', add_snippet, name='add_snippet'),
     path('snippets/<int:snippet_id>/', snippet_detail, name='snippet_detail'),
     path('<int:snippet_id>/like/', like, name='like'),
-
-    # ex: /snippets/1/dislike/
     path('<int:snippet_id>/dislike/', dislike, name='dislike'),
+
 ]

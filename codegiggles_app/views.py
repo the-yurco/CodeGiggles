@@ -4,12 +4,14 @@ from .forms import SnippetForm
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.db.models import Q
+from django.http import JsonResponse
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 
 def home(request):
-  #! latest 8 snippets
-  snippets = Snippet.objects.all().order_by('-created_at')
-  return render(request, 'codegiggles_app/home.html', {'snippets': snippets})
+    snippets = Snippet.objects.all().order_by('-created_at')
+    return render(request, 'codegiggles_app/home.html', {'snippets': snippets})
  
 def snippets(request):
   snippets = Snippet.objects.all().order_by('-created_at')
@@ -35,13 +37,18 @@ def like(request, snippet_id):
     snippet = get_object_or_404(Snippet, id=snippet_id)
     snippet.likes += 1
     snippet.save()
-    return HttpResponseRedirect(reverse('snippets'))
+    
+    data = {'likes': snippet.likes}
+    return JsonResponse(data)
 
 def dislike(request, snippet_id):
     snippet = get_object_or_404(Snippet, id=snippet_id)
     snippet.dislikes += 1
     snippet.save()
-    return HttpResponseRedirect(reverse('snippets'))
+
+    data = {'dislikes': snippet.dislikes}
+    return JsonResponse(data)
+
 
 def snippets(request):
     query = request.GET.get('q')
@@ -60,3 +67,4 @@ def snippets(request):
     }
 
     return render(request, 'codegiggles_app/snippets.html', context)
+

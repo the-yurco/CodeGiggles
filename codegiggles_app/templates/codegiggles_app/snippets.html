@@ -26,6 +26,7 @@
 			rel="stylesheet"
 			href="{% static 'codegiggles_app/css/style.css' %}"
 		/>
+		<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 	</head>
 	<body>
 		<div class="row home">
@@ -125,7 +126,7 @@
 										method="post"
 										id="like_dislike_form"
 									>
-										{% csrf_token %}
+										{% csrf_token %} {% comment %}
 										<button type="submit" class="buttonises">
 											<svg
 												xmlns="http://www.w3.org/2000/svg"
@@ -139,6 +140,15 @@
 												/>
 											</svg>
 										</button>
+										{% endcomment %}
+										<button
+											type="button"
+											class="buttonises like-button"
+											data-snippet-id="{{ snippet.id }}"
+										></button>
+										<span class="like-count" data-snippet-id="{{ snippet.id }}"
+											>{{ snippet.likes }}</span
+										>
 									</form>
 									<span class="like-count">{{ snippet.likes }}</span>
 
@@ -147,7 +157,7 @@
 										method="post"
 										id="like_dislike_form"
 									>
-										{% csrf_token %}
+										{% csrf_token %} {% comment %}
 										<button type="submit" class="buttonises">
 											<svg
 												xmlns="http://www.w3.org/2000/svg"
@@ -161,6 +171,17 @@
 												/>
 											</svg>
 										</button>
+										{% endcomment %}
+										<button
+											type="button"
+											class="buttonises dislike-button"
+											data-snippet-id="{{ snippet.id }}"
+										></button>
+										<span
+											class="dislike-count"
+											data-snippet-id="{{ snippet.id }}"
+											>{{ snippet.dislikes }}</span
+										>
 									</form>
 									<span class="dislike-count">{{ snippet.dislikes }}</span>
 								</div>
@@ -197,5 +218,27 @@
 				</div>
 			</div>
 		</div>
+
+		<script>
+			$(document).ready(function () {
+				$('.like-button').on('click', function () {
+					var snippetId = $(this).data('snippet-id');
+					$.post('/' + snippetId + '/like/', function (data) {
+						$('.like-count[data-snippet-id="' + snippetId + '"]').text(
+							data.likes
+						);
+					});
+				});
+
+				$('.dislike-button').on('click', function () {
+					var snippetId = $(this).data('snippet-id');
+					$.post('/' + snippetId + '/dislike/', function (data) {
+						$('.dislike-count[data-snippet-id="' + snippetId + '"]').text(
+							data.dislikes
+						);
+					});
+				});
+			});
+		</script>
 	</body>
 </html>

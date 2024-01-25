@@ -1,0 +1,115 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Add Snippet</title>
+		<script
+			src="https://kit.fontawesome.com/71692e25c7.js"
+			crossorigin="anonymous"
+		></script>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+			integrity="sha384-xBf9KEeK+W3K3Q+xqBYJByPf1fnp0xRbISwlyZSAUu8B7VtlidM5q6eyW5MJK1R6"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="{% static 'codegiggles_app/css/style.css' %}"
+		/>
+	</head>
+	<body>
+		<div class="row home">
+			<div class="col-4 left-bar d-flex mt-1">
+				<div class="row container-fluid">
+					<div class="col-6"></div>
+					<div class="col-6">
+						<h3 id="logo">CodeGiggles</h3>
+						<p class="option">
+							<a
+								href="{% url 'home' %}"
+								class="fs-5 text-decoration-none fw-medium link-menu"
+							>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									height="16"
+									width="18"
+									viewBox="0 0 576 512"
+								>
+									<path
+										fill="#2e2e2e"
+										d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"
+									/>
+								</svg>
+								Home
+							</a>
+						</p>
+						<p class="option">
+							<a
+								href="{% url 'snippets' %}"
+								class="fs-5 text-decoration-none fw-medium link-menu"
+							>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									height="16"
+									width="12"
+									viewBox="0 0 384 512"
+								>
+									<path
+										fill="#2e2e2e"
+										d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128z"
+									/>
+								</svg>
+								Snippets
+							</a>
+						</p>
+						<p class="option">
+							<a
+								href="{% url 'add_snippet' %}"
+								class="fs-5 text-decoration-none fw-medium link-menu"
+							>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									height="16"
+									width="14"
+									viewBox="0 0 448 512"
+								>
+									<path
+										fill="#2e2e2e"
+										d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
+									/>
+								</svg>
+								Add Snippet
+							</a>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-4 feed mt-2">
+				<div class="header">
+					<h5 class="p-0 header">Register</h5>
+				</div>
+				<div class="tweets">
+					<section id="form">
+						<form method="post" action="{% url 'register' %}">
+							{% csrf_token %} {{ user_form.as_p }}
+							<button type="submit">Register</button>
+						</form>
+					</section>
+				</div>
+			</div>
+			<div class="col-4 right-bar mt-1">
+				<div class="search-box"></div>
+			</div>
+		</div>
+	</body>
+</html>

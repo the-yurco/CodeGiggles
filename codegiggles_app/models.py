@@ -7,7 +7,7 @@ class Snippet(models.Model):
   language = models.CharField(max_length=50)
   description = models.TextField(default='')
   created_at = models.DateTimeField(auto_now_add=True)
-  likes = models.PositiveIntegerField(default=0)
+  likes = models.ManyToManyField(User, related_name='likes', blank=True)
   dislikes = models.PositiveIntegerField(default=0)
 
   def __str__(self):

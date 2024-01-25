@@ -172,6 +172,9 @@ form {
 }
 
 #like_dislike_form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	.buttonises {
 		background-color: $inputGrey;
 		border: none;

@@ -47,6 +47,7 @@ def snippet_detail(request, snippet_id):
     snippet = get_object_or_404(Snippet, pk=snippet_id)
     return render(request, 'codegiggles_app/snippet_detail.html', {'snippet': snippet})
 
+@login_required
 def like(request, snippet_id):
     snippet = get_object_or_404(Snippet, id=snippet_id)
     snippet.likes += 1
@@ -55,6 +56,7 @@ def like(request, snippet_id):
     data = {'likes': snippet.likes}
     return JsonResponse(data)
 
+@login_required
 def dislike(request, snippet_id):
     snippet = get_object_or_404(Snippet, id=snippet_id)
     snippet.dislikes += 1

@@ -47,23 +47,17 @@ def snippet_detail(request, snippet_id):
     snippet = get_object_or_404(Snippet, pk=snippet_id)
     return render(request, 'codegiggles_app/snippet_detail.html', {'snippet': snippet})
 
-@login_required
 def like(request, snippet_id):
     snippet = get_object_or_404(Snippet, id=snippet_id)
     snippet.likes += 1
     snippet.save()
-    
-    data = {'likes': snippet.likes}
-    return JsonResponse(data)
+    return HttpResponseRedirect(reverse('snippets'))
 
-@login_required
 def dislike(request, snippet_id):
     snippet = get_object_or_404(Snippet, id=snippet_id)
     snippet.dislikes += 1
     snippet.save()
-
-    data = {'dislikes': snippet.dislikes}
-    return JsonResponse(data)
+    return HttpResponseRedirect(reverse('snippets'))
 
 def user_register(request):
     if request.method == 'POST':
@@ -91,3 +85,4 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect('home')
+

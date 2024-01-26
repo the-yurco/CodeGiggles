@@ -182,7 +182,7 @@
 											</svg>
 										</button>
 										<span class="like-count" data-snippet-id="{{ snippet.id }}"
-											>{{ snippet.likes }}</span
+											>{{ snippet.dislikes }}</span
 										>
 									</form>
 									<form
@@ -251,7 +251,7 @@
 		<script>
 			$(document).ready(function () {
 				$('.like-button').on('click', function () {
-					var snippetId = $(this).data('snippet-id');
+					let snippetId = $(this).data('snippet-id');
 					$.post('/' + snippetId + '/like/', function (data) {
 						$('.like-count[data-snippet-id="' + snippetId + '"]').text(
 							data.likes
@@ -260,7 +260,7 @@
 				});
 
 				$('.dislike-button').on('click', function () {
-					var snippetId = $(this).data('snippet-id');
+					let snippetId = $(this).data('snippet-id');
 					$.post('/' + snippetId + '/dislike/', function (data) {
 						$('.dislike-count[data-snippet-id="' + snippetId + '"]').text(
 							data.dislikes

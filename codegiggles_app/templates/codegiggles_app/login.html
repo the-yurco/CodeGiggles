@@ -72,25 +72,6 @@
 								Snippets
 							</a>
 						</p>
-						<p class="option">
-							<a
-								href="{% url 'add_snippet' %}"
-								class="fs-5 text-decoration-none fw-medium link-menu"
-							>
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									height="16"
-									width="14"
-									viewBox="0 0 448 512"
-								>
-									<path
-										fill="#2e2e2e"
-										d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"
-									/>
-								</svg>
-								Add Snippet
-							</a>
-						</p>
 					</div>
 				</div>
 			</div>
@@ -98,15 +79,18 @@
 				<div class="header">
 					<h5 class="p-0 header">Login</h5>
 				</div>
-				<div class="tweets">
+				<div class="tweets loginregister_wrapper">
 					<section id="form">
-						<form method="post">
+						<form method="post" class="registerino">
 							{% csrf_token %} {{ form.as_p }}
 							<button type="submit">Login</button>
 						</form>
-						<p class="mt-3">
-							Don't have an account? <a href="{% url 'register' %}">Register</a>
-						</p>
+						<div>
+							<p class="mt-3">
+								Don't have an account?
+								<a href="{% url 'register' %}">Register</a>
+							</p>
+						</div>
 					</section>
 				</div>
 			</div>
